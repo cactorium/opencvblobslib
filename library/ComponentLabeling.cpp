@@ -454,9 +454,7 @@ myCompLabelerGroup::~myCompLabelerGroup()
 
 void myCompLabelerGroup::set( int nThreads, Mat binIm )
 {
-  if (nThreads <= 0) {
-    nThreads = 1;
-  }
+  CV_Assert(nThreads > 0);
 	this->numThreads=nThreads;
 	if(binIm.isContinuous()){
 		this->img=binIm;
